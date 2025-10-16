@@ -23,6 +23,11 @@ class Clientes(Base):
         session.commit()
         return cliente
     
+    def traer_cliente_por_id(id):
+        cliente =  session.query(Clientes).filter(Clientes.id == id).first()
+        return cliente
+    
+    
     def traer_clientes():
         clientes =  session.query(Clientes).all()
         return clientes
@@ -33,4 +38,9 @@ class Clientes(Base):
     def obtener_cliente_por_documento_identidad(documento_identidad):
         cliente = session.query(Clientes).filter(Clientes.documento_identidad == documento_identidad).first()
         print(cliente)
-        return cliente.as_dict()
+        if cliente:
+            return cliente.as_dict()
+        else:
+            return None 
+    
+

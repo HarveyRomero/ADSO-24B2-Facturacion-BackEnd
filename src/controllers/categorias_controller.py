@@ -3,7 +3,7 @@ from flask_controller import FlaskController
 from src.models.categorias import Categorias
 from src.app import app
 from src.schemas.categorias_schema import categorias_schema, categoria_schema
-import re
+
 
 class CategoriasController(FlaskController):
 
